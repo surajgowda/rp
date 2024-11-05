@@ -1,0 +1,147 @@
+.print {
+    background-color: white;
+    color: black;
+    padding: 30px;
+}
+
+.head_content {
+    display: flex;
+}
+
+.quotation {
+    width: 100%;
+    text-align: center;
+    /* Align text to the center */
+}
+
+/* Style for the center details */
+.center_details {
+    width: 100%;
+    text-align: end;
+}
+
+.customer_details {
+    display: flex;
+    /* Display the divs side by side */
+}
+
+.center_details_table td {
+    text-align: left;
+    margin: 0;
+}
+
+/* Styles for the left div */
+.cust_details {
+    width: 50%;
+}
+
+
+.styled-table {
+    width: 100%;
+    /* Set table width to cover 100% of the page */
+    border-collapse: collapse;
+    /* Collapse borders to prevent double borders */
+}
+
+.styled-table th {
+    border: 1px solid black;
+    /* Add borders to table cells */
+    padding: 8px;
+    text-align: left;
+    /* Align text to the left within cells */
+}
+
+.styled-table td {
+    border: 1px solid black;
+    text-align: left;
+}
+
+.activity_content,
+.scope_content {
+    margin-left: 80px;
+}
+
+.ood_only {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.signatures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+}
+
+.head_content img {
+    width: 300px;
+    height: 80px;
+
+}
+
+textarea {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding-top: 15%;
+}
+
+#myTable input {
+    padding-top: 12%;
+    text-align: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.sum_total_cost {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    width: 100%;
+}
+
+.subject-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subject-type .subject {
+    float: "left";
+}
+
+.activity_note,
+.scope_of_work {
+    margin-left: 10%;
+}
+
+.prepared_by {
+    display: block;
+}
+
+.prepared_by p {
+    text-align: center;
+}
+
+.prepared_by button {
+    width: inherit;
+    align-items: center;
+}
+
+.prepared_by img {
+    width: 150px;
+    height: 100px;
+}
+
+.office_incharge,
+.centre_head {
+    margin-top: 13%;
+}

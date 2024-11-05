@@ -1,0 +1,104 @@
+/* Neumorphic styles */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.div-neu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neu {
+    background-color: #f0f0f0;
+    /* Light background color */
+    box-shadow: 8px 8px 16px #d0d0d0,
+        -8px -8px 16px #ffffff;
+    /* Shadow and highlight */
+    border-radius: 16px;
+    /* Rounded corners for softness */
+    padding: 20px;
+    /* Padding for spacing */
+}
+
+.neu__logo {
+    border-radius: 50%;
+    height: 100px;
+    /* Adjust as needed */
+    width: 100px;
+    /* Adjust as needed */
+}
+
+.neu__title {
+    margin-bottom: 20px;
+    /* Spacing below the title */
+    text-align: center;
+    color: #2b6da6;
+}
+
+.pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neu__input {
+    margin-bottom: 20px;
+    /* Spacing between inputs and button */
+    color: blue;
+}
+
+.neu__input input {
+    width: 100%;
+    padding: 15px;
+    /* Adjusted padding for better appearance */
+    border-radius: 8px;
+    border: none;
+    background-color: #f0f0f0;
+    /* Light background color */
+    box-shadow: inset 4px 4px 8px #d0d0d0,
+        inset -4px -4px 8px #ffffff;
+    /* Inner shadow and highlight */
+}
+
+.neu__button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    box-shadow: 4px 4px 8px #d0d0d0,
+        -4px -4px 8px #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #3179b8;
+}
+
+.neu__button:hover {
+    background-color: #d3d3d3;
+}
+
+.popup {
+    background-color: #e0e0e0;
+    /* Light background color */
+    box-shadow: 8px 8px 16px #d0d0d0,
+        -8px -8px 16px #ffffff;
+    /* Shadow and highlight */
+    border-radius: 8px;
+    /* Rounded corners for softness */
+    padding: 10px;
+    /* Padding for spacing */
+    position: relative;
+    margin-top: 45px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup__message {
+    margin: 3px;
+    color: rgb(44, 82, 206);
+}

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #chartContainer {
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 10px;
+    }
+    .input-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+    }
+    .input-label {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<header>
+    <div id="navbar-container"></div>
+  </header>
+<body>
+
+  <h2>Normal Distribution Graph</h2>
+
+  <div id="chartContainer">
+    <canvas id="normalChart" class="chart"></canvas>
+  </div>
+
+  <div class="input-container">
+    <div>
+      <label class="input-label" for="mean">Mean (μ):</label>
+      <input type="number" id="mean" value="0" onchange="drawNormalDistribution()">
+    </div>
+    <div>
+      <label class="input-label" for="stdDev">Standard Deviation (σ):</label>
+      <input type="number" id="stdDev" value="1" step="0.1" onchange="drawNormalDistribution()">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function normalPDF(x, mean, stdDev) {
+      const exponent = Math.exp(-Math.pow(x - mean, 2) / (2 * Math.pow(stdDev, 2)));
+      return (1 / (stdDev * Math.sqrt(2 * Math.PI))) * exponent;
+    }
+
+    function drawNormalDistribution() {
+      const mean = parseFloat(document.getElementById('mean').value);
+      const stdDev = parseFloat(document.getElementById('stdDev').value);
+      const labels = [];
+      const data = [];
+
+      // Generate x values and corresponding PDF values
+      for (let x = mean - 4 * stdDev; x <= mean + 4 * stdDev; x += 0.1) {
+        labels.push(x.toFixed(1));
+        data.push(normalPDF(x, mean, stdDev));
+      }
+
+      const ctx = document.getElementById('normalChart').getContext('2d');
+      if (window.myChart) {
+        window.myChart.destroy();
+      }
+
+      window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Probability Density',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            fill: true,
+            data: data,
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'X Values' } },
+            y: {
+              title: { display: true, text: 'Probability Density' },
+              beginAtZero: true
+            }
+          },
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // Initial graph display
+    drawNormalDistribution();
+  </script>
+
+{% endblock %}

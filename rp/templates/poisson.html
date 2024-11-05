@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #chartContainer {
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 10px;
+    }
+    .input-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+    }
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    .input-label {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<header>
+    <div id="navbar-container"></div>
+  </header>
+<body>
+
+  <h2>Poisson Distribution Graph</h2>
+
+  <div id="chartContainer">
+    <canvas id="poissonChart" class="chart"></canvas>
+  </div>
+
+  <div class="input-container">
+    <div>
+      <label class="input-label" for="lambda">Average Number of Events (λ):</label>
+      <input type="number" id="lambda" value="5" min="1" max="100" step="1" style="width: 70px;" onchange="drawPoissonDistribution()">
+    </div>
+
+    <div class="slider-container">
+      <label class="input-label">Number of Events (k):</label>
+      <input type="range" id="events" min="0" max="30" step="1" value="5" style="width: 100%;" onchange="drawPoissonDistribution(); updateLambdaLabel()">
+    </div>
+  </div>
+
+  <span id="lambdaLabel">λ = 5</span>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function poissonPMF(lambda, k) {
+      function factorial(x) {
+        return x <= 1 ? 1 : x * factorial(x - 1);
+      }
+      return (Math.pow(lambda, k) * Math.exp(-lambda)) / factorial(k);
+    }
+
+    function generatePoissonData(lambda) {
+      let labels = [];
+      let data = [];
+      const maxK = 30; // You can adjust this value based on your needs
+
+      for (let k = 0; k <= maxK; k++) {
+        labels.push(k);
+        data.push(poissonPMF(lambda, k));
+      }
+
+      return { labels, data };
+    }
+
+    function drawPoissonDistribution() {
+      const lambda = parseFloat(document.getElementById('lambda').value);
+      const { labels, data } = generatePoissonData(lambda);
+
+      const ctx = document.getElementById('poissonChart').getContext('2d');
+      if (window.myChart) {
+        window.myChart.destroy();
+      }
+
+      window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Probability',
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            data: data,
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Number of Events (k)' } },
+            y: {
+              title: { display: true, text: 'Probability' },
+              beginAtZero: true
+            }
+          },
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+      updateLambdaLabel();
+    }
+
+    function updateLambdaLabel() {
+      const lambda = document.getElementById('lambda').value;
+      const label = document.getElementById('lambdaLabel');
+      label.innerText = `λ = ${lambda}`;
+    }
+
+    // Initial graph display
+    drawPoissonDistribution();
+  </script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Programming</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="{% static 'pics/images.jpeg' %}" alt="logo" class="logo-img" />
+            </div>
+            <h2 class="title">BCA 5th Semester - R Programming</h2>
+            <h3 class="title">Login</h3>
+            {% if error %}
+            <div class="error-popup">
+                <p class="error-message">Invalid credentials. Please try again.</p>
+            </div>
+            {% endif %}
+
+            <div id="customPopup" class="error-popup" style="display:none">
+                <p class="error-message" onclick="closePopup()">Disappointing that you forgot your password. Meet me to reset it.<br> -Suraj</p>
+            </div>
+
+            <form class="login-form" method="post">
+                {% csrf_token %}
+                <div class="input-wrapper">
+                    <input type="text" id="username" name="username" placeholder="Enter your Roll No">
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <div class="forgot">
+                    <a href="#" class="forgot-password" onclick="showPopup()">Forgot password?</a><br /><br />
+                </div>
+                <button class="login-button" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function showPopup() {
+            document.getElementById("customPopup").style.display = "block";
+            document.querySelector(".forgot").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

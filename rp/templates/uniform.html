@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #chartContainer {
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 10px;
+    }
+    .input-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+    }
+    .input-label {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<header>
+    <div id="navbar-container"></div>
+</header>
+<body>
+
+  <h2>Uniform Distribution Graph</h2>
+
+  <div id="chartContainer">
+    <canvas id="uniformChart" class="chart"></canvas>
+  </div>
+
+  <div class="input-container">
+    <div>
+      <label class="input-label" for="minValue">Minimum Value:</label>
+      <input type="number" id="minValue" value="1" onchange="drawUniformDistribution()">
+    </div>
+    <div>
+      <label class="input-label" for="maxValue">Maximum Value:</label>
+      <input type="number" id="maxValue" value="10" onchange="drawUniformDistribution()">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function uniformPMF(min, max) {
+      const n = max - min + 1; // Total number of outcomes
+      const probability = 1 / n; // Probability for each outcome
+      const data = [];
+
+      for (let k = min; k <= max; k++) {
+        data.push(probability);
+      }
+
+      return data;
+    }
+
+    function drawUniformDistribution() {
+      const minValue = parseInt(document.getElementById('minValue').value);
+      const maxValue = parseInt(document.getElementById('maxValue').value);
+      const labels = Array.from({ length: maxValue - minValue + 1 }, (_, i) => i + minValue);
+      const data = uniformPMF(minValue, maxValue);
+
+      const ctx = document.getElementById('uniformChart').getContext('2d');
+      if (window.myChart) {
+        window.myChart.destroy();
+      }
+
+      window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Probability',
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            data: data,
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Outcomes' } },
+            y: {
+              title: { display: true, text: 'Probability' },
+              beginAtZero: true
+            }
+          },
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // Initial graph display
+    drawUniformDistribution();
+  </script>
+
+{% endblock %}

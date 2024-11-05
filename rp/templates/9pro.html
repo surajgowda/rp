@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+
+<br><hr>
+    
+    <div class="prog-title">
+        <h3>Program 9: Write a R program any dataset containing dataframe objects, 
+            indexing and subsetting data frames, and employ manipulating and analyzing data.
+        </h3>
+        <a href="#" class="next-program-btn">Next Program</a>  
+    </div>
+
+    <div class="code-container">
+        # Sample data frame
+        data <- data.frame(
+        ID = 1:6,
+        Name = c("Alice", "Bob", "Charlie", "David", "Eve", "Frank"),
+        Age = c(25, 30, 35, 28, 40, 32),
+        Score = c(95, 88, 92, 79, 87, 91)
+        )
+        
+        # Display the entire data frame
+        cat("Original Data Frame:\n")
+        print(data)
+        
+        # Indexing and subsetting data frames
+        # Select rows where Age is greater than 30
+        subset_data <- data[data$Age > 30, ]
+        cat("InSubsetting Data Frame (Age > 30):\n")
+        print(subset_data)
+        
+        # Select specific columns
+        selected_columns <- data[, c("Name", "Score")]
+        cat("\nSelecting Specific Columns:\n")
+        print(selected_columns)
+
+        # Sorting data frame by Score in descending order
+        sorted_data <- data[order(-data$Score), ]
+        cat("InSorting Data Frame by Score (Descending Order):\n")
+        print(sorted_data)
+
+        # Summary statistics
+        summary_stats <- summary(data$Score)
+        cat("\nSummary Statistics of Score:\n")
+        print(summary_stats)
+
+        # Mean and median of Age
+        mean_age <- mean(data$Age)
+        median_age <- median(data$Age)
+        cat("InMean Age:", mean_age, "In")
+        cat("Median Age:", median_age, "\n")
+
+    </div>
+{% endblock %}
+

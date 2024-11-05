@@ -1,0 +1,75 @@
+.styled-table td {
+    border: 1px solid black;
+    /* Add borders to table cells */
+    padding: 5px;
+}
+
+.pr_logo {
+    margin-left: 80%;
+    height: 75px;
+}
+
+.header-title,
+.pr-title {
+    text-align: center;
+    line-height: 0.5;
+}
+
+.sanctioning-authority {
+    text-align: right;
+}
+
+.indenting-officer {
+    text-align: start;
+    margin-top: 22%;
+}
+
+.styled-table input[type="text"],
+.styled-table input[type="number"],
+input[type="date"],
+select {
+    text-align: center;
+    width: 100%;
+}
+
+.save {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.signatures,
+.signatures-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.top-space {
+    margin-top: 12%;
+}
+
+.indenting_officer img {
+    width: 150px;
+    height: 100px;
+}
+
+.project-details {
+    margin-top: 20%;
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+
+<h1 class="text-center my-3">Please ask a relevant question</h1>
+<div class="wrap"> 
+    <form method="post" action="{% url 'post_question' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="textarea-container">
+            <!-- Text Area for Question -->
+            <textarea name="question" placeholder="Enter your text here..." rows="5"></textarea>
+        </div>
+
+        <!-- Attachment File Input -->
+        <div class="file-input-container">
+            <label for="attachment">Attachment</label> 
+            <input type="file" name="attachment" id="attachment">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}

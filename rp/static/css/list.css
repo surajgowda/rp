@@ -1,0 +1,199 @@
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #fff;
+    /* Text color */
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    /* Table header border color */
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+    background-color: #343a40;
+    /* Table header and cell background color */
+    border-color: #454d55;
+    /* Table border color */
+    text-align: center;
+}
+
+.table-dark tbody+tbody,
+.table-dark td,
+.table-dark th,
+.table-dark thead th {
+    border-color: #454d55;
+    /* Table border color */
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Odd row background color */
+}
+
+.table-dark.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    /* Hover row background color */
+}
+
+.table-dark td,
+.table-dark th {
+    border-color: #454d55;
+    /* Table border color */
+}
+
+.table-dark thead th {
+    border-bottom-color: #454d55;
+    /* Table header border color */
+}
+
+.table-dark.table-bordered {
+    border: 0;
+    /* Remove table border */
+}
+
+.table-dark.table-bordered th,
+.table-dark.table-bordered td {
+    border: 1px solid #454d55;
+    /* Table border color */
+}
+
+.table-dark.table-bordered thead th,
+.table-dark.table-bordered thead td {
+    border-bottom-width: 2px;
+    /* Table header border width */
+}
+
+.table-dark.table-borderless tbody+tbody,
+.table-dark.table-borderless td,
+.table-dark.table-borderless th,
+.table-dark.table-borderless thead th {
+    border: 0;
+    /* Remove table border */
+}
+
+.table th {
+    padding: 20px;
+    font-size: large;
+}
+
+.table td {
+    padding: 5px;
+}
+
+
+a {
+    color: white;
+    text-decoration: underline;
+    /* Removes the underline */
+}
+
+a:visited {
+    color: white;
+    /* Color when visited */
+}
+
+a:hover {
+    color: #007bff;
+    /* Color when hovered */
+}
+
+a:active {
+    color: white;
+    /* Color when clicked */
+}
+
+th {
+    cursor: pointer;
+}
+
+.table-container {
+    max-height: 75vh;
+    /* Set a fixed height for the container */
+    overflow-y: auto;
+    /* Enable vertical scrolling for the table body */
+}
+
+/* Default (for large screens like TVs) */
+/* .table-container {
+    max-height: 75vh;
+    overflow-y: auto;
+} */
+
+/* For large desktops (>= 1200px) */
+@media (max-width: 1500px) {
+    .table-container {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 1200px) {
+    .table-container {
+        max-height: 60vh;
+    }
+}
+
+/* For laptops/desktops (>= 992px and < 1200px) */
+@media (max-width: 992px) {
+    .table-container {
+        max-height: 60vh;
+    }
+}
+
+/* For small laptops/tablets (>= 768px and < 992px) */
+@media (max-width: 768px) {
+    .table-container {
+        max-height: 60vh;
+    }
+}
+
+/* For narrow laptop screens (>= 576px and < 768px) */
+@media (max-width: 576px) {
+    .table-container {
+        max-height: 55vh;
+    }
+}
+
+.table {
+    width: 100%;
+    /* Ensure the table takes up the full width of the container */
+    border-collapse: collapse;
+    /* Ensure consistent table layout */
+}
+
+.table thead th {
+    position: sticky;
+    /* Make the table header sticky */
+    top: 0;
+    /* Stick the header at the top of the container */
+    z-index: 1;
+    /* Ensure the header stays above the table body */
+    background-color: #343a40;
+    /* Match the background color of the header */
+}
+
+.table tr {
+    border: #007bff;
+    border-bottom: 2px;
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+.table-container::-webkit-scrollbar {
+    width: 5px;
+    /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Color of the scrollbar track */
+}

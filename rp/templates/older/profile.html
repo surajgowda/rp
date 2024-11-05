@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    .qualification table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .qualification th,
+    .qualification td {
+        border: 2px solid #007bff;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .qualification th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .photo-cell {
+        padding: 10px;
+    }
+
+    .employee-pic {
+        max-width: 300px;
+        margin-left: 15%;
+        margin-top: -20%;
+        border: 5px solid #007bff;
+        /* Blue border */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        /* Shadow for a fancy effect */
+    }
+</style>
+
+
+<div class="header">
+    <div class="links">
+        <a href="#" class="header-link personal-link" onclick="showPersonalDetails()"
+            style="color:white;background-color:#007bff">Personal Details</a>
+        <a href="#" class="emergency-link" onclick="showEmergencyContact()"
+            style="text-decoration:none; color:white;">Emergency Contact</a>
+    </div>
+    <h1>
+        Hi, {{profile.name}}
+    </h1>
+
+    <div class="details">
+        <h2>Personal Details</h2>
+
+        <table>
+            {% if employee.staff_no and employee.staff_no != 'none' %}
+            <tr>
+                <td><strong>Staff No:</strong></td>
+                <td>{{ employee.staff_no }}</td>
+                <td rowspan="10" class="photo-cell">
+                    {% if employee.pic and employee.pic.url != 'none' %}
+                    <img src="{{ employee.pic.url }}" alt="Your pic" class="employee-pic">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+            {% if employee.group and employee.group != 'none' %}
+            <tr>
+                <td><strong>Group:</strong></td>
+                <td>{{ employee.group }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.email and employee.email != 'none' %}
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td>{{ employee.email }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.gender and employee.gender != 'none' %}
+            <tr>
+                <td><strong>Gender:</strong></td>
+                <td>{{ employee.gender }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.phone and employee.phone != 'none' %}
+            <tr>
+                <td><strong>Phone:</strong></td>
+                <td>{{ employee.phone }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.current_address and employee.current_address != 'none' %}
+            <tr>
+                <td><strong>Current Address:</strong></td>
+                <td>{{ employee.current_address }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.permanent_address and employee.permanent_address != 'none' %}
+            <tr>
+                <td><strong>Permanent Address:</strong></td>
+                <td>{{ employee.permanent_address }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.date_of_birth and employee.date_of_birth != 'none' %}
+            <tr>
+                <td><strong>Date of Birth:</strong></td>
+                <td>{{ employee.date_of_birth }}</td>
+            </tr>
+            {% endif %}
+            {% if employee.blood_group and employee.blood_group != 'none' %}
+            <tr>
+                <td><strong>Blood Group:</strong></td>
+                <td>{{ employee.blood_group }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td><strong>Active:</strong></td>
+                <td>{% if employee.is_active %} Yes {% else %} No {% endif %}</td>
+            </tr>
+            {% if employee.date_of_joining and employee.date_of_joining != 'none' %}
+            <tr>
+                <td><strong>Date of Joining:</strong></td>
+                <td>{{ employee.date_of_joining }}</td>
+            </tr>
+            {% endif %}
+        </table>
+
+    </div>
+
+
+    <div class="emergency-contacts" style="display: none;">
+        <h2 style='text-decoration:underline'>Contact Details</h2>
+
+        <table class="details-table">
+            
+        </table>
+
+    </div>
+
+    </div>
+</div>
+<div class="footer">
+</div>
+
+<script>
+    function showPersonalDetails() {
+        document.querySelector('.emergency-link').style = "text-decoration:none; color:white;";
+        document.querySelector('.personal-link').style = "background-color:#007bff; color:white;";
+
+        document.querySelector('.details').style.display = 'block';
+        document.querySelector('.emergency-contacts').style.display = 'none';
+        
+    }
+    function showEmergencyContact() {
+        document.querySelector('.emergency-link').style = "background-color:#007bff; color:white;";
+        document.querySelector('.personal-link').style = "text-decoration:none; color:white;";
+
+        document.querySelector('.details').style.display = 'none';
+        document.querySelector('.emergency-contacts').style.display = 'block';
+    }
+
+</script>
+
+{% endblock %}

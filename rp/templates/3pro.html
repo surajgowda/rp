@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+<br><hr>
+    <div class="prog-title">
+        <h3>Program 3: Demonstrating Operators, Control Structures, Default Arguments, and Complex Return in R</h3>
+        <a href="{% url 'prog7' %}" class="next-program-btn">Next Program</a>  
+    </div>
+
+    <div class="code-container">
+        # 1. Operators
+        a <- 10
+        b <- 5
+        sum_result <- a + b  # Addition
+        diff_result <- a - b  # Subtraction
+        prod_result <- a * b  # Multiplication
+        div_result <- a / b  # Division
+        mod_result <- a %% b  # Modulo
+
+        print(paste("Sum:", sum_result))
+        print(paste("Difference:", diff_result))
+        print(paste("Product:", prod_result))
+        print(paste("Division:", div_result))
+        print(paste("Modulo:", mod_result))
+
+        # 2. Control Structures
+        if (a > b) {
+            print("a is greater than b")
+        } else {
+            print("b is greater than or equal to a")
+        }
+
+        for (i in 1:5) {
+            print(paste("Iteration:", i))
+        }
+
+        # 3. Function with Default Arguments
+        my_function <- function(x = 1, y = 2) {
+            return(x + y)
+        }
+
+        print(paste("Sum with default arguments:", my_function()))  # Default arguments
+        print(paste("Sum with custom arguments:", my_function(10, 20)))  # Custom arguments
+
+        # 4. Returning a Complex Object (List)
+        complex_function <- function(a, b) {
+            sum_val <- a + b
+            prod_val <- a * b
+            result <- list(sum = sum_val, product = prod_val)
+            return(result)
+        }
+
+        complex_result <- complex_function(3, 4)
+        print("Complex object returned:")
+        print(complex_result)
+    </div>
+{% endblock %}

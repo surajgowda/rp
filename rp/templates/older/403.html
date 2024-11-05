@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/undercons.css' %}" />
+{% block title %}Forgive me{% endblock %}
+<div class="container header" style="margin-top:10%">
+    <div class="icon">😭</div>
+    <h1>Sorry!</h1>
+    <p>Limited Access</p>
+    <a href="{% url 'home' %}">Go back</a>
+</div>
+{% endblock %}

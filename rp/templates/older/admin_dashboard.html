@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/admin-dashboard.css' %}" />
+
+<div class="header">
+    <div class="tables-striped" style="display:flex; justify-content: space-between;">
+        <div class="tasks-table" style="flex: 1; margin-right: 20px;">
+
+            <h2 style="margin: 0; text-align: center; width: 100%;">Tasks Table</h2>
+            <div class="table-container">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Task Title</th>
+                            <th>Task Deadline</th>
+                            <th>Create Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- {% for item in tasks %}
+                        {% if item.task_late %} 
+                        <tr style="background-color: #ffcccc">                            
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="#" style="text-align:center">{{ item.task.title }}</a></td>
+                            <td>{{ item.task.deadline }}</td>
+                            <td><a href="#" style="text-align:center">&#9998;</a></td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="#" style="text-align:center">{{ item.task.title }}</a></td>
+                            <td>{{ item.task.deadline }}</td>
+                            <td><a href="#" style="text-align:center">&#9998;</a></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody> -->                   
+                </table>
+            </div>
+        </div>
+        <!-- <div class="activities-table" style="flex: 1; width:100%">
+            <div style="display:flex; width: 100%;">
+                <h2 style="margin: 0;margin-left:150px">Activity Table</h2>
+                <form method="POST" style="display: flex;margin-left: auto;">
+                    {% csrf_token %}
+                    <input type="date" name="date" value="{{ date }}"
+                        style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    <button type="submit"
+                        style="padding: 5px 10px;border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">Go</button>
+                </form>
+            </div>
+
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Sl No</th>
+                        <th>Date</th>
+                        <th>Task Assigned</th>
+                        <th>View Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{activity.date}}</td>
+                        {% if activity.task %}
+                        <td><a href="{% url 'task' activity.task.id %}"
+                                style="text-align:center">{{ activity.task.title }}</a></td>
+                        {% else %}
+                        <td>Not Assigned</td>
+                        {% endif %}
+                        <td><a href="{% url 'view_activity' activity.id %}">{{ activity.activity_title }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div> -->
+    </div>
+
+</div>
+{% endblock %}

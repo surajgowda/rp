@@ -1,0 +1,98 @@
+.print {
+    background-color: white;
+    color: black;
+    padding: 30px;
+}
+
+.pr-table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.border-collapse {
+    border-collapse: collapse;
+}
+
+.styled-table td {
+    border: 1px solid black;
+    /* Add borders to table cells */
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+.purchase-logo {
+    float: right;
+    height: 75px;
+}
+
+.header-title,
+.pr-title {
+    text-align: center;
+    line-height: 0.5;
+}
+
+
+.sanctionting-authority {
+    text-align: end;
+}
+
+.indenting-officer {
+    text-align: start;
+    margin-top: 22%;
+}
+
+.styled-table input[type="text"],
+.styled-table input[type="number"],
+input[type="date"],
+select {
+    text-align: center;
+    width: 100%;
+}
+
+.sanctioting-authority {
+    margin-left: 60%;
+}
+
+.save {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.signatures,
+.signatures-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.top-space {
+    margin-top: 12%;
+}
+
+.indenting_officer img {
+    width: 150px;
+    height: 100px;
+}
+
+.project-details {
+    margin-top: 20%;
+}

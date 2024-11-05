@@ -1,0 +1,57 @@
+.form-field {
+    margin: 10px 0;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.lab-related legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+#lab-related {
+    width: 100%;
+}
+
+#lab-related .form-field {
+    width: 100%;
+}
+
+#lab-related .form-field table {
+    width: 100%;
+}
+
+#lab-related .form-field table th,
+#lab-related .form-field table td {
+    width: 30%;
+    text-align: left;
+}
+
+#lab-related .form-field table select,
+#lab-related .form-field table input[type="number"] {
+    width: 90%;
+}
+
+#lab-related .form-field table button {
+    width: auto;
+    font-size: 0.8em;
+    padding: 5px;
+    margin-top: -10px;
+}
+
+#lab-related .cost {
+    margin-top: 20px;
+}
+
+#lab-related .cost label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#lab-related .cost input[type="number"] {
+    width: 90%;
+}

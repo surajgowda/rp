@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/alert-style.css' %}">
+
+{% include 'alert.html' %}
+
+<div class="project-form header" style="display:block;">
+
+    <div class="feednack-details" style="display:block;">
+        <h2 class="title">Bug Report/Feedback</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea id="feedback" rows="15" name="feedback"
+                placeholder="You're free to speak freely! Nobody's watching..."
+                data-validity="text,5,200000"></textarea><br>
+            <!-- Add more fields if necessary -->
+            <label for="screenshots">Screenshots (if any)</label>
+            <input type="file" name="screenshot" id="screenshot" accept="image/*">
+            <br><br>
+            <button type="submit" onclick="validate(event)">Submit</button>
+        </form>
+    </div>
+
+    <script src="{% static 'js/alert-box.js' %}"></script>
+    <script src="{% static 'js/validate.js' %}"></script>
+
+    {% endblock %}

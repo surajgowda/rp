@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+<br><hr>
+    <div class="prog-title">
+        <h3>Program 1: Demonstrating different data structures in R</h2>
+        <a href="{% url 'prog2' %}" class="next-program-btn">Next Program</a>  
+    </div>
+
+    <div class="code-container">
+        # 1. Vector
+        my_vector <- c(10, 20, 30, 40)
+        print("Vector:")
+        print(my_vector)
+
+        # 2. List
+        my_list <- list(name = "Alice", age = 25, scores = c(80, 90, 85))
+        print("List:")
+        print(my_list)
+
+        # 3. Matrix
+        my_matrix <- matrix(1:9, nrow = 3, ncol = 3)
+        print("Matrix:")
+        print(my_matrix)
+
+        # 4. Data Frame
+        my_dataframe <- data.frame(
+            name = c("John", "Jane", "Tom"),
+            age = c(23, 35, 29),
+            score = c(88, 92, 75)
+        )
+        print("Data Frame:")
+        print(my_dataframe)
+    </div>
+{% endblock %}
+

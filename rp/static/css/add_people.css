@@ -1,0 +1,140 @@
+/* Form container styling */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Distribute sections evenly */
+}
+
+/* Form styling */
+.employee-form,
+.emergency-contacts-form,
+.designations-form,
+.documents-form,
+.bank-details-form,
+.qualification-form,
+.project-form {
+    flex-basis: 45%;
+    /* Set width for each form section */
+    background-color: #333;
+    /* Dark background color */
+    color: white;
+    /* Text color */
+    padding: 20px;
+    /* Padding for inner content */
+    border-radius: 10px;
+    /* Rounded corners */
+    margin-bottom: 20px;
+    /* Spacing between sections */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+    background-color: #555;
+    /* Darker input background */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    padding: 8px;
+    /* Padding for input */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    border-radius: 5px;
+    /* Rounded corners */
+    width: calc(100% - 16px);
+    /* Adjust width to account for padding */
+}
+
+/* File input styling */
+input[type="file"] {
+    color: white;
+    /* Text color */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-right: 5px;
+    /* Spacing between checkbox and label */
+}
+
+/* Label styling */
+label {
+    margin-bottom: 5px;
+    /* Spacing between labels */
+}
+
+/* Submit button styling */
+.submit-button {
+    flex-basis: 100%;
+    /* Set full width for submit button */
+    text-align: center;
+    /* Center the button */
+}
+
+.submit-button button {
+    background-color: #007bff;
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* Remove button border */
+    padding: 10px 20px;
+    /* Padding for button */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+.submit-button button:hover {
+    background-color: #0056b3;
+    /* Darker background color on hover */
+}
+
+/* Hide default file input button */
+input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+/* Custom file input button */
+input[type="file"]+label {
+    background-color: #007bff;
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    padding: 10px 20px;
+    /* Padding for button */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+input[type="file"]+label:hover {
+    background-color: #0056b3;
+    /* Darker background color on hover */
+}
+
+.qualification-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.qualification-table th,
+.qualification-table td {
+    border: 2px solid white;
+    padding: 10px;
+    text-align: left;
+}
+
+#project-list {
+    display: block;
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+    <main>
+        <section class="course-description">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <img src="{% static 'pics/r.png' %}" alt="R Programming Logo">
+            </div>
+        
+            <!-- Course Content Container -->
+            <div class="content-container">
+                <h1>Statistical Computing and R Programming</h1>
+                <p>I would like to thank all the authors of "Statistical Computing & R Promgramming",
+                    specially Mrs. Sukanya N S of the MCA department, New Horizon College of Engineering.
+                    <br><br>I also wish to extend my appreciation to Tilman M. Davis, the author of "The Book of R". 
+                    While I have not sought permission to circulate his textbook, I hope he wouldn't mind knowing that I am sharing it freely.
+                    <br><br>
+                    I would also like to thank in advance, to my students, 
+                    with the hope that they will contribute to the site.
+                </p>
+            </div>
+        </section>
+        <br>
+        
+    </main>
+    {% endblock %}

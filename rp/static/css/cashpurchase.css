@@ -1,0 +1,49 @@
+.print {
+    background-color: white;
+    color: black;
+    padding: 30px;
+}
+
+.logo {
+    float: right;
+}
+
+.header-title {
+    text-align: center;
+}
+
+.vchrs-desc-amt {
+    text-align: center;
+}
+
+.vchrs-desc-amt table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vchrs-desc-amt table,
+.vchrs-desc-amt table th,
+.vchrs-desc-amt table td {
+    border: 1px solid black;
+    /* Defines the border size, style, and color */
+}
+
+#description,
+#subvoucher {
+    width: 95%;
+}
+
+#emptyspace1,
+#emptyspace2,
+#emptyspace3,
+#emptyspace4 {
+    width: 95%;
+}
+
+.signatures,
+.signatures-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}

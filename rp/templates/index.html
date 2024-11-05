@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+
+<br>
+<main>
+    <section class="course-description">
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <img src="{% static 'pics/r.png' %}" alt="R Programming Logo">
+            </div>
+        
+            <!-- Course Content Container -->
+            <div class="content-container">
+                <h1>Statistical Computing and R Programming</h1>
+                <p>This course covers foundational and advanced concepts in statistical computing using R, tailored for students of 5th semester BCA, 
+                    New Horizon College. You can find you course materials, illustrations, datasets, and other tools. 
+                    You can also <a href="{% url 'discussion' %}">reach out</a> if you face concerns.</p>
+                <p><strong>Suraj C Gowda</strong><br>Assistant Professor, MCA, NHCE</p>
+                <p><strong>Semester:</strong> September - December, 2024</p>
+            </div>
+        </section>
+        <br>
+        
+    </main>
+{% endblock %}
+   

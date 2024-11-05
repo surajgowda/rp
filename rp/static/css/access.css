@@ -1,0 +1,56 @@
+.table-container {
+    overflow-x: auto;
+}
+
+
+/* For WebKit-based browsers (Chrome, Safari) */
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Color of the scrollbar track */
+}
+
+/* For Firefox */
+.table-container {
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+    scrollbar-color: #007bff rgba(255, 255, 255, 0.1);
+    /* Color of the thumb and track */
+}
+
+.header button[type="submit"] {
+    background-color: #007bff;
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* Remove button border */
+    padding: 10px 20px;
+    /* Padding for button */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Change cursor on hover */
+    margin: 10px;
+}
+
+input[type="checkbox"].uncheckable {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+#fixed-column {
+    position: sticky;
+    left: 0;
+}

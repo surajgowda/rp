@@ -1,0 +1,92 @@
+.print {
+    background-color: white;
+    color: black;
+    padding: 30px;
+}
+
+.save,
+.next {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.signatures,
+.signatures-align,
+.bottom-signatures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.items-list textarea {
+    resize: vertical;
+}
+
+.top-space {
+    margin-top: 13%;
+}
+
+.logo,
+.header-date-no {
+    float: right;
+}
+
+.header-form-title,
+.header-title {
+    text-align: center;
+}
+
+.header-title h3,
+.header-form-title h3 {
+    margin-bottom: 5px;
+    /* Reduce space below the h3 tag */
+}
+
+.header-title p,
+.header-form-title p {
+    margin-top: 5px;
+    /* Reduce space above the p tag */
+}
+
+.items-list table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.items-list th,
+.items-list td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.items-list th {
+    background-color: #f2f2f2;
+}
+
+.vendor-table {
+    border-collapse: collapse;
+}
+
+.vendor-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}

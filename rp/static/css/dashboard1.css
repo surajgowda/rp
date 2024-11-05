@@ -1,0 +1,271 @@
+/* Common styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-pic-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: border-color 0.3s ease;
+}
+
+.profile-pic:hover {
+    border-color: #007bff;
+    /* Change to your preferred hover color */
+}
+
+.profile-pic-container:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    /* Adjust based on your needs */
+    right: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.logout-link {
+    display: none;
+    /* Hide logout link initially */
+}
+
+.profile-link {
+    display: none;
+    /* Hide profile link initially */
+}
+
+.profile-pic-container:hover .logout-link,
+.profile-pic-container:hover .profile-link {
+    display: block;
+}
+
+.logo-img {
+    width: 100px;
+    /* Adjust as needed */
+    height: 100px;
+    /* Adjust as needed */
+    border-radius: 50%;
+    margin-left: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #333;
+    /* Dark background color */
+    color: white;
+    /* Text color */
+    text-decoration: none;
+    border-radius: 5px;
+    /* Rounded corners */
+}
+
+.nav-links a:hover {
+    background-color: #007bff;
+    /* Change background color on hover */
+    color: white;
+}
+
+/* Dashboard layout styles */
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 97%;
+    z-index: 999;
+    /* Ensure title bar stays on top of other content */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.sub-links {
+    padding-top: 10px;
+}
+
+.title-bar .logo {
+    margin-right: auto;
+}
+
+.title-bar .title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.title-bar .title h2 {
+    margin: 10;
+    color: white;
+}
+
+.header {
+    margin-top: 10%;
+    align-items: center;
+    margin-left: 300px;
+}
+
+.links {
+    display: flex;
+    padding: 25px;
+    justify-content: space-between;
+}
+
+.employee-details {
+    color: white;
+}
+
+.employee-details p {
+    margin: 5px 0;
+}
+
+strong {
+    color: #007bff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    margin-top: 130px;
+    overflow-y: auto;
+    /* Set overflow-y to scroll */
+}
+
+.dummy_space {
+    margin-bottom: 65%;
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Color of the scrollbar track */
+}
+
+/* For Firefox */
+.sidebar {
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+    scrollbar-color: #007bff rgba(255, 255, 255, 0.1);
+    /* Color of the thumb and track */
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+
+/* Profile styles */
+.links a {
+    color: white;
+    /* Text color */
+    text-decoration: none;
+    /* Remove underline */
+    padding: 10px 20px;
+    /* Add padding */
+}
+
+.links a:hover {
+    background-color: #007bff;
+    /* Change background color on hover */
+    color: white;
+    /* Text color */
+}
+
+/* Specific styles for different links */
+.personal-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.emergency-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.documents-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.designations-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.qualification-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.bank-link {
+    background-color: #333;
+    /* Dark background color */
+}
+
+.add-project-link {
+    background-color: #333;
+}
+
+.projects-link {
+    background-color: #333;
+}
+
+
+.footer {
+    padding: 30px;
+}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+<br><hr>
+    <div class="prog-title">
+        <h3>Program 2: Demonstrating Variables, Constants, and Data Types in R</h3>
+        <a href="{% url 'prog3' %}" class="next-program-btn">Next Program</a>  
+    </div>
+    
+    <div class="code-container">
+        # 1. Variable Declaration
+        my_var <- 42  # Numeric variable
+        my_name <- "Alice"  # String variable
+        is_active <- TRUE  # Boolean variable
+
+        # 2. Constant Declaration using 'const' function
+        my_constant <- 3.14159  # Pi constant (no direct const in R, just don't change the value)
+
+        # 3. Data Types
+        num_type <- typeof(my_var)  # Numeric type
+        char_type <- typeof(my_name)  # Character type
+        bool_type <- typeof(is_active)  # Logical type (Boolean)
+
+        # Print the variables and their types
+        print(paste("Numeric Variable:", my_var, "Type:", num_type))
+        print(paste("String Variable:", my_name, "Type:", char_type))
+        print(paste("Boolean Variable:", is_active, "Type:", bool_type))
+        print(paste("Constant Value:", my_constant))
+
+    </div>
+{% endblock %}

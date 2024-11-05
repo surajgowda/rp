@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}RP{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="ask-question-container">
+    <a href="{% url 'post_question' %}" class="ask-question-button">Ask a Question</a>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="select-type">
+        <button class="answered selected" onclick="displayAnswered(this)">Answered</button>
+        <button class="unanswered" onclick="displayUnanswered(this)">Unanswered</button>
+    </div>
+</div>
+
+<div class="discussion-window">
+    <div class="answers">
+        {% for question_id, answer_list in answers.items %}
+            <div class="discussion-card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <h5 class="card-title">{{ answer_list.0.question.question }}</h5>
+                    <div class="card-meta">
+                        <span class="asked-by">Asked by: <strong>{{ answer_list.0.question.asked_by }}</strong></span>
+                        <span class="asked-date">On: <strong>{{ answer_list.0.question.date }} {{ answer_list.0.question.time }}</strong></span><br>
+                        <a href="{% url 'post_answer' question_id %}" class="answer-button">Add to the discussion</a>
+                    </div>
+                </div>
+    
+                <!-- Collapsible Section -->
+                <div class="card-content">
+                    <div class="card-body">
+                        <!-- Attachment Display for Question -->
+                        {% if answer_list.0.question.attachment %}
+                            <div class="attachment">
+                                <img src="{{ answer_list.0.question.attachment.url }}" alt="Attachment" class="attachment-img" onclick="displaywide(1)">
+                            </div>
+                        {% endif %}
+    
+                        <!-- Modal Structure for Attachment -->
+                        <div id="imageModal-1" class="modal" onclick="closeModal(1)">
+                            <span class="close-btn" onclick="closeModal(1)">&#10005;</span>
+                            <img class="modal-content" id="modalImage-1">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h3 style="color:#ffb800">Answers:</h3>
+                        {% for answer in answer_list %}
+                            <div class="answer">
+                                <p><strong>{{ answer.answered_by }}:</strong><br> {{ answer.answer }}</p>
+
+                                <!-- Attachment Display for Answer -->
+                                {% if answer.attachment %}
+                                    <div class="attachment">
+                                        <img src="{{ answer.attachment.url }}" alt="Attachment" class="attachment-img" onclick="displaywide(1)">
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <br>
+                        {% empty %}
+                            <p>No answers yet.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <button class="read-button" onclick="toggleCard(this)">Read</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="questions" style="display: none;">
+        {% for question in questions %}
+            <div class="discussion-card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <h5 class="card-title">{{ question.question }}</h5>
+                    <div class="attachment">
+                        {% if question.attachment %}
+                        <img src="{{ question.attachment.url }}" alt="Attachment" class="attachment-img" onclick="displaywide(2)">
+                        {% endif %}
+                    </div>
+                    <div id="imageModal-2" class="modal" onclick="closeModal(2)">
+                        <span class="close-btn" onclick="closeModal(2)">&#10005;</span>
+                        <img class="modal-content" id="modalImage-2">
+                    </div>
+                    <div class="card-meta">
+                        <span class="asked-by">Asked by:<strong>{{ question.asked_by }}</strong></span>
+                        <span class="asked-date
+                        ">On: <strong>{{ question.date }} {{ question.time }}</strong></span>
+                    </div>
+                    <div class="answer-button-container">
+                        <a href="{% url 'post_answer' question.id %}" class="answer-button">Answer it</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'js/discussion.js' %}"></script>
+
+
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #chartContainer {
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 10px;
+    }
+    .input-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+    }
+    .input-label {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<header>
+    <div id="navbar-container"></div>
+</header>
+<body>
+
+  <h2>Student's t-Distribution Graph</h2>
+
+  <div id="chartContainer">
+    <canvas id="tChart"></canvas>
+  </div>
+
+  <div class="input-container">
+    <div>
+      <label class="input-label" for="df">Degrees of Freedom (df):</label>
+      <input type="number" id="df" value="1" min="1" onchange="drawTDistribution()">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function tPDF(x, df) {
+      const numerator = Math.gamma((df + 1) / 2);
+      const denominator = Math.sqrt(df * Math.PI) * Math.gamma(df / 2);
+      const exponent = -((df + 1) / 2) * Math.log(1 + (x * x / df));
+      return (numerator / denominator) * Math.exp(exponent);
+    }
+
+    function drawTDistribution() {
+      const df = parseInt(document.getElementById('df').value);
+      const labels = [];
+      const data = [];
+
+      // Generate x values and corresponding PDF values
+      for (let x = -5; x <= 5; x += 0.1) {
+        labels.push(x.toFixed(1));
+        data.push(tPDF(x, df));
+      }
+
+      const ctx = document.getElementById('tChart').getContext('2d');
+      if (window.myChart) {
+        window.myChart.destroy();
+      }
+
+      window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Probability Density',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            fill: true,
+            data: data,
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'X Values' } },
+            y: {
+              title: { display: true, text: 'Probability Density' },
+              beginAtZero: true
+            }
+          },
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // Initial graph display
+    drawTDistribution();
+  </script>
+
+{% endblock %}

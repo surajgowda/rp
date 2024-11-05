@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistical Computing and R Programming{% endblock %}
+{% block content %}
+{% load static %}
+<br><hr>
+    <div class="prog-title">
+        <h3>Program 8: Write a R program for any visual representation of an object with creating graphs
+            using graphic functions: Plot(),Hist(),Linechart(),Pie(),Boxplot(),Scatterplots().</h3>
+        <a href="{% url 'prog9' %}" class="next-program-btn">Next Program</a>  
+    </div>
+    <div class="code-container">
+        # Generate sample data for visualization
+        set.seed(123)
+        data <- morm(100)
+
+        # Plot
+        plot(data, main = "Scatter Plot", xlab = "X-axis", ylab = "Y-axis", pch = 19, col = "blue")
+
+        # Histogram
+        hist(data, main = "Histogram", xlab = "Value", ylab = "Frequency", col = "lightblue")
+
+        # Line Chart
+        time <- 1:10
+        values <- morm(10)
+        plot(time, values, type = "I", main = "Line Chart", xlab = "Time", ylab = "Value", col = "green")
+        # Pie Chart
+        slices <- c(10, 20, 15, 5)
+        labels <- c["A", "B", "C", "D")
+        pie(slices, labels = labels, main ="Ple Chart")
+
+        # Boxplot
+        boxplot(data, main = "Box Plot", xlab = "Data", col = "orange")
+
+        # Scatter Plot
+        set.seed(456)
+        x <- morm(50)
+        y <- 2 * x + morm(50)
+        plot(x, y. main = "Scatter Plot", xlab = "X", ylab = "Y", pch = 20, col = "red")
+        abline(Im(y ~ x), col = "blue")
+    </div>
+    <script src="index.js"></script>
+{% endblock %}
+

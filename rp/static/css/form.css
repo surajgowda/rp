@@ -1,0 +1,119 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Distribute sections evenly */
+}
+
+/* Form styling */
+.header {
+    flex-basis: 45%;
+    /* Set width for each form section */
+    background-color: #333;
+    /* Dark background color */
+    color: white;
+    /* Text color */
+    padding: 20px;
+    /* Padding for inner content */
+    border-radius: 10px;
+    /* Rounded corners */
+    margin-bottom: 20px;
+    /* Spacing between sections */
+}
+
+/* Input field styling */
+.header input[type="text"],
+.header input[type="number"],
+.header input[type="date"],
+.header input[type="file"],
+.header input[type="email"] {
+    background-color: #555;
+    /* Darker input background */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    padding: 8px;
+    /* Padding for input */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    border-radius: 5px;
+    /* Rounded corners */
+    width: calc(100% - 16px);
+    /* Adjust width to account for padding */
+}
+
+.header input[type="time"] {
+    background-color: #555;
+    /* Darker input background */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    padding: 8px;
+    /* Padding for input */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    border-radius: 5px;
+    /* Rounded corners */
+    width: calc(90% - 16px);
+}
+
+/* Submit button styling */
+.header button[type="submit"] {
+    background-color: #007bff;
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* Remove button border */
+    padding: 10px 20px;
+    /* Padding for button */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+.header button[type="submit"]:hover {
+    background-color: #0056b3;
+    /* Darker background color on hover */
+}
+
+textarea {
+    width: 100%;
+    /* Set the width to 100% of the containing div */
+    padding: 8px;
+    /* Add padding for better appearance */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the width */
+    background-color: #555;
+    color: white;
+    padding: 8px;
+    /* Padding for input */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    border-radius: 10px;
+}
+
+select {
+    width: 100%;
+    /* Set the width to 100% of the containing div */
+    padding: 8px;
+    /* Add padding for better appearance */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the width */
+    background-color: #555;
+    color: white;
+    padding: 8px;
+    /* Padding for input */
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    border-radius: 10px;
+}
+
+option {
+    font-size: 15px;
+    padding: 10px;
+
+}
